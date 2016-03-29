@@ -1,0 +1,14 @@
+{
+  "name": "api.adamsanderson.co.uk",
+  "version": "0.0.1",
+  "description": "API to access and create content for adamsanderson.co.uk",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Adam Sanderson",
+  "license": "MIT",
+  "devDependencies": {
+  }
+}

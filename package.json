@@ -2,13 +2,18 @@
   "name": "api.adamsanderson.co.uk",
   "version": "0.0.1",
   "description": "API to access and create content for adamsanderson.co.uk",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
   "author": "Adam Sanderson",
   "license": "MIT",
-  "devDependencies": {
+  "devDependencies": {},
+  "dependencies": {
+    "koa": "^1.2.0",
+    "koa-route": "^2.4.2",
+    "minimist": "^1.2.0",
+    "mongodb": "^2.1.13"
   }
 }

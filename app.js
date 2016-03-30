@@ -2,6 +2,9 @@
 
 const koa = require('koa');
 const route = require('koa-route');
+
+const posts = require('./app/posts/posts');
+
 const app = koa();
 const argv = require('minimist')(process.argv.slice(2));
 
@@ -26,11 +29,10 @@ app.use(function *(next){
   console.log('%s %s - %s', this.method, this.url, ms);
 });
 
-// response
 
-app.use(route.get('/interesting', function * () {
-    this.body = 'hmmm?????';    
-}));
+app
+  .use(route.get('/interesting', posts.read))
+  .use(route.post('/interesting', posts.create));
 
 app.use(function * (){
     this.body = 'Hello World';

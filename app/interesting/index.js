@@ -33,7 +33,29 @@ function * read () {
     return Promise.resolve(posts);
 }
 
+function * allGroupByMonth () {
+    let db = pmongo(url, ['posts']);
+    let posts = yield db.posts.aggregate([
+        
+        ]);
+    db.close();
+    return Promise.resolve(posts);
+}
+
+function * mostRecentPosts () {
+    let db = pmongo(url, ['posts']);
+    let posts = yield db.posts.find().limit(2).toArray();
+    db.close();
+    return Promise.resolve(posts);
+}
+
 module.exports = {
     create: create,
-    read: read
+    read: read,
+    archive: {
+        read: allGroupByMonth
+    },
+    article: {
+        read: mostRecentPosts
+    }
 }

@@ -152,8 +152,31 @@
     },
     "/interesting/archive": {
       "get": {
-        "description": "Return summary of the user",
-        "tags": ["interesting"],
+        "description": "Return interesting things grouped by month",
+        "tags": ["interesting.archive"],
+        "security": [{
+          "bearer": []
+        }],
+        "responses": {
+          "200": {
+            "description": "The user data was succesfully returned",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/user"
+              }
+            }
+          },
+          "default": {
+            "schema": { "$ref": "#/definitions/InternalError" }
+          }
+        }
+      }
+    },
+    "/interesting/article": {
+      "get": {
+        "description": "Return interesting things grouped by month",
+        "tags": ["interesting.article"],
         "security": [{
           "bearer": []
         }],

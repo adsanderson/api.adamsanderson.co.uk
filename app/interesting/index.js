@@ -11,8 +11,7 @@ function * create (req) {
 
 function * read () {
     let posts = yield pocket();
-    posts
-    return Promise.resolve(posts);
+    return Promise.resolve(articleBuilder(posts.list));
 }
 
 function * allGroupByMonth () {

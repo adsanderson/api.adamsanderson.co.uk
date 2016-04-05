@@ -2,6 +2,14 @@
 
 const remark = require('remark');
 
+function escapeTitle (title, date) {
+    return remark.stringify({
+        "type": "yaml",
+        "value": `title: ${title}
+date: ${date}`
+    });
+}
+
 function escapeLinkMd (text, link) {
     return remark.stringify({
         "type": "heading",
@@ -54,11 +62,7 @@ function createMarkdown (article) {
     return combineMarkdown(link, excerpt);
 }
 
-function builder (articles) {
-    return Object.keys(articles).map((value, index) => {
-        return createMarkdown(articles[value]);
-    });
-
-}
-
-module.exports = createMarkdown;
+module.exports = {
+    createMarkdown: createMarkdown,
+    createTitle: escapeTitle
+};

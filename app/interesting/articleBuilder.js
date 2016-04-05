@@ -1,5 +1,5 @@
 'use strict';
 
-function builder (articles) {
-    
+module.exports = function articlesBuilder (articles) {
+    return true;
 }

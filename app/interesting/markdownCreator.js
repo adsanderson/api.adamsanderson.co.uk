@@ -1,0 +1,64 @@
+'use strict';
+
+const remark = require('remark');
+
+function escapeLinkMd (text, link) {
+    return remark.stringify({
+        "type": "heading",
+        "depth": 3,
+        "children": [{
+            "type": "link",
+            "title": null,
+            "url": link,
+            "children": [{
+                "type": "text",
+                "value": text
+            }]
+        }]
+    });    
+}
+
+function escapeQuoteMd (text) {
+    return remark.stringify({
+        "type": "blockquote",
+        "children": [{
+            "type": "paragraph",
+            "children": [{
+                "type": "text",
+                "value": text
+            }]
+        }]
+    });    
+}
+
+function createLink (article) {
+    return escapeLinkMd(article.resolved_title, article.resolved_url);
+}
+
+function creatExcerpt (article){
+    if (article.excerpt) return escapeQuoteMd(article.excerpt);
+}
+
+function combineMarkdown(link, excerpt) {
+    let markdown = [link];
+    
+    if (excerpt) markdown.push(excerpt);
+    
+    return markdown.join('\n\n');
+}
+
+function createMarkdown (article) {
+    let link = createLink(article);
+    let excerpt = creatExcerpt(article);
+    
+    return combineMarkdown(link, excerpt);
+}
+
+function builder (articles) {
+    return Object.keys(articles).map((value, index) => {
+        return createMarkdown(articles[value]);
+    });
+
+}
+
+module.exports = createMarkdown;

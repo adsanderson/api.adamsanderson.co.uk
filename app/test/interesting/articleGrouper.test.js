@@ -6,13 +6,13 @@ const articleGrouper = require('../../interesting/articleGrouper');
 function createDummyArticle (timeAdded) {
     if (timeAdded) {
         return {
-            time_added: 1457167982823 // 2016-03-05T08:53:02.823Z
+            time_added: 1457167982 // 2016-03-05T08:53:02.823Z
         };
     }
 
     return {
-        time_added: 1457167982823, // 2016-03-05T08:53:02.823Z
-        time_updated: 1459846382823 // 2016-04-05T08:53:02.823Z
+        time_added: 1457167982, // 2016-03-05T08:53:02.823Z
+        time_updated: 1459846382 // 2016-04-05T08:53:02.823Z
     };
     
 }

@@ -4,7 +4,7 @@
   "description": "API to access and create content for adamsanderson.co.uk",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node node_modules/tap/bin/run.js app/test/**/*.*",
     "start": "node app.js"
   },
   "author": "Adam Sanderson",

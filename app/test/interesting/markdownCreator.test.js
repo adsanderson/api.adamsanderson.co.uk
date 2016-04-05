@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require("tap").test;
-const articleBuilder = require('../../interesting/markdownCreator');
+const articleBuilder = require('../../interesting/markdownCreator').createMarkdown;
 
 function createDummyArticle(resolved_title, resolved_url, excerpt) {
     return {

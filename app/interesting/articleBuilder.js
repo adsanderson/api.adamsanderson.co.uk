@@ -22,33 +22,41 @@ const createTitle = require("./markdownCreator").createTitle;
 //     const thisItem = createLatestArticleItem(articleTimestamp, markdown);
 // }
 
-function addTitle() {
+// function addTitle() {
 
+// }
+
+function buildArticle(markdown, currentMonthsArticle) {
+  return [markdown].concat([currentMonthsArticle]).join('\n\n');
+}
+
+function builder(articles) {
+  const initalGroupedArticles = {
+    latest: {},
+    months: {}
+  };
+  return Object.keys(articles).reduce((grouped, articleKey) => {
+    const months = Object.assign({}, grouped.months);
+    const article = articles[articleKey];
+    const articleGroup = articleGrouper(article);
+
+    const markdown = markdownCreator(article);
+
+    const currentMonthsArticle = months[articleGroup];
+
+    if (!currentMonthsArticle) {
+      console.log(createTitle('test', '2016-04-01T00:00:00'));
+    }
+
+    months[articleGroup] = buildArticle(markdown, currentMonthsArticle);
+
+    return {
+      months: months
+    };
+  }, initalGroupedArticles);
 }
 
 module.exports = function articlesBuilder(articles) {
-  const initalGroupedArticles = {
-      latest: {},
-      months: {}
-    };
-
-  const groupedArticles = Object.keys(articles).reduce((grouped, articleKey) => {
-      const months = Object.assign({}, grouped.months);
-      const article = articles[articleKey];
-      const articleGroup = articleGrouper(article);
-
-      const markdown = markdownCreator(article);
-
-      if (!months[articleGroup]) {
-          console.log(createTitle('test', '2016-04-01T00:00:00'));
-        }
-
-      months[articleGroup] = [markdown].concat([months[articleGroup]]).join('\n\n');
-
-      return {
-          months: months
-        };
-    }, initalGroupedArticles);
-
+  const groupedArticles = builder(articles);
   return groupedArticles.months;
 };

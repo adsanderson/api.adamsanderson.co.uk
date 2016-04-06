@@ -7,13 +7,13 @@ var appConfig = require('../../config.json');
 const config = {
   method: 'POST',
   headers: {
-      'Content-Type': 'application/json'
-    },
+    'Content-Type': 'application/json'
+  },
   body: JSON.stringify({
-      consumer_key: appConfig.pocket.CONSUMER_KEY,
-      access_token: appConfig.pocket.ACCESS_TOKEN,
-      tag: "reading"
-    })
+    consumer_key: appConfig.pocket.CONSUMER_KEY, // eslint-disable-line camelcase
+    access_token: appConfig.pocket.ACCESS_TOKEN, // eslint-disable-line camelcase
+    tag: "reading"
+  })
 };
 
 function fetchReadingList() {
@@ -21,4 +21,4 @@ function fetchReadingList() {
     .then(response);
 }
 
-module.exports = fetchReadingList
+module.exports = fetchReadingList;

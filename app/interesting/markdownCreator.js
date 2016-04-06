@@ -4,39 +4,39 @@ const remark = require('remark');
 
 function escapeTitle(title, date) {
   return remark.stringify({
-      "type": "yaml",
-      "value": `title: ${title}
+    type: "yaml",
+    value: `title: ${title}
 date: ${date}`
-    });
+  });
 }
 
 function escapeLinkMd(text, link) {
   return remark.stringify({
-      "type": "heading",
-      "depth": 3,
-      "children": [{
-          "type": "link",
-          "title": null,
-          "url": link,
-          "children": [{
-              "type": "text",
-              "value": text
-            }]
-        }]
-    });
+    type: "heading",
+    depth: 3,
+    children: [{
+      type: "link",
+      title: null,
+      url: link,
+      children: [{
+        type: "text",
+        value: text
+      }]
+    }]
+  });
 }
 
 function escapeQuoteMd(text) {
   return remark.stringify({
-      "type": "blockquote",
-      "children": [{
-          "type": "paragraph",
-          "children": [{
-              "type": "text",
-              "value": text
-            }]
-        }]
-    });
+    type: "blockquote",
+    children: [{
+      type: "paragraph",
+      children: [{
+        type: "text",
+        value: text
+      }]
+    }]
+  });
 }
 
 function createLink(article) {
@@ -44,13 +44,17 @@ function createLink(article) {
 }
 
 function creatExcerpt(article) {
-  if (article.excerpt) return escapeQuoteMd(article.excerpt);
+  if (article.excerpt) {
+    return escapeQuoteMd(article.excerpt);
+  }
 }
 
 function combineMarkdown(link, excerpt) {
   let markdown = [link];
 
-  if (excerpt) markdown.push(excerpt);
+  if (excerpt) {
+    markdown.push(excerpt);
+  }
 
   return markdown.join('\n\n');
 }

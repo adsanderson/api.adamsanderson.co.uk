@@ -1,3 +1,11 @@
 language: node_js
 node_js:
 - '5.5'
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: AKIAIETWHIH2VYDEX4KQ
+    secret_access_key:
+      secure: FO1HEGruHlgTqrzJMvnczKdHFas/HN8WDLYxXD7ci/7KRXuWrQPJ93fjk7U5CzmeRJljnIC0CDfYXmUZFNHhJNl04wejPhdiN7eOynX5yBFTF8gBDq15iVPpQaifodAK/0KcpsbI99N0fxaZqHjFyIMFnrrj9XySMLbrIc18lTvIL19beG1tiRWKsBdZyLnyHnV6RrnGpAy/vz5kJMAo9yowUTPlpSfxi9XwQrAug5duu2STGUz6aOMOYjc+DTzog4n9SKv7XvsfQliVO3GYUD/XPNtzK4ZXjALfiOXFvXnVPnZKbhMAZZ3VIvAsHIus6JfdlGu4qbt4MMzgQvihLz3z45XGgMjs+BDsfGsuvTriRqTojyZesHQGPNr9Z4EKHWE6VKEeWR+9NovytrEpbKT22Td5bzu1xr4CReymxgmSDQXU4+flcwpDxalA/pXB/LjOGu4wRlK5Ca6zxNM1CyO5rYtpouI9GlgnFAcsytCwHrBXAvQnmnVL79ddOujwoBcHWgdWEuoCPvP/jMaV48Y2f0OV0ix7UXWUfvCiECBqVjMQRHVNt8T6cS6/txveuoVx+qxtciJKi/WK5G1akZLb16K0wRMfk/yvYcyxxV37/9HZ+20bWWcE7YTbOlsrrxPC7HV7epmD5gQuPIe0ivBjkZ1Zb2vYVLtmOUklDBw=
+  region: eu-west-1
+  app: api.adamsanderson.co.uk
+  env: apiadamsanderson-env

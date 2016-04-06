@@ -2,7 +2,6 @@
 
 const fetch = require('node-fetch');
 const response = require("./response");
-var appConfig = require('../../config.json');
 
 const config = {
   method: 'POST',

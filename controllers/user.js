@@ -1,17 +1,17 @@
 module.exports.post = function * () {
   this.body = {
-    message : 'user created'
-  }
-}
+    message: 'user created'
+  };
+};
 
 module.exports.put = function * () {
   this.body = {
-    message : 'user updated'
-  }
-}
+    message: 'user updated'
+  };
+};
 
 module.exports.get = function * () {
   this.body = {
-    message : 'user retrieved'
-  }
-}
+    message: 'user retrieved'
+  };
+};

@@ -3,34 +3,34 @@
 var pocket = require("../pocket");
 var articleBuilder = require("./articleBuilder");
 
-function * create (req) {
+function * create(req) {
 
-    return Promise.resolve();
+  return Promise.resolve();
 }
 
 
-function * read () {
-    let posts = yield pocket();
-    return Promise.resolve(articleBuilder(posts.list));
+function * read() {
+  let posts = yield pocket();
+  return Promise.resolve(articleBuilder(posts.list));
 }
 
-function * allGroupByMonth () {
-    
-    return Promise.resolve();
+function * allGroupByMonth() {
+
+  return Promise.resolve();
 }
 
-function * mostRecentPosts () {
-    
-    return Promise.resolve();
+function * mostRecentPosts() {
+
+  return Promise.resolve();
 }
 
 module.exports = {
-    create: create,
-    read: read,
-    archive: {
-        read: allGroupByMonth
+  create: create,
+  read: read,
+  archive: {
+      read: allGroupByMonth
     },
-    article: {
-        read: mostRecentPosts
+  article: {
+      read: mostRecentPosts
     }
-}
+};

@@ -1,197 +1,30 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Fleek Seed API",
-    "description": "Koa on point",
+    "title": "api.adamsanderson.co.uk",
+    "description": "API for adamsanderson.co.uk",
     "version": "0.0.1"
   },
-  "host": "127.0.0.1:5000",
   "schemes": ["http", "https"],
   "consumes": ["application/json"],
   "produces": ["application/json"],
-  "securityDefinitions": {
-    "apiKey": {
-      "type": "apiKey",
-      "name": "api_key",
-      "description": "Require API key for access",
-      "in": "header"
-    },
-    "bearer": {
-      "type": "apiKey",
-      "name": "authorization",
-      "in": "header"
-    }
-  },
   "paths": {
-    "/": {
-      "get": {
-        "description": "Return the web application",
-        "tags": ["application"],
-        "consumes": ["text/html"],
-        "produces": ["text/html"],
-        "responses": {
-          "200": {
-            "description": "The application is being served"
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      }
-    },
-    "/user/create": {
-      "post": {
-        "description": "Return the JSON summary of the user",
-        "tags": ["user"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "User created",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
-            }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      }
-    },
-    "/user/:id": {
-      "get": {
-        "description": "Return summary of the user",
-        "tags": ["user"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "The user data was succesfully returned",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
-            }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      },
-      "put": {
-        "description": "Return the JSON summary of the user",
-        "tags": ["user"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "The user data was succesfully returned",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
-            }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      }
-    },
     "/interesting": {
       "get": {
-        "description": "Return summary of the user",
+        "description": "Return a list of interesting articles",
         "tags": ["interesting"],
-        "security": [{
-          "bearer": []
-        }],
         "responses": {
           "200": {
             "description": "The user data was succesfully returned",
             "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
+              "$ref": "schema/interesting.json"
             }
           },
           "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      },
-      "post": {
-        "description": "Return the JSON summary of the user",
-        "tags": ["interesting"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "User created",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
+            "description": "unexpected error",
+            "schema": { 
+              "$ref": "#/definitions/InternalError" 
             }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      }
-    },
-    "/interesting/archive": {
-      "get": {
-        "description": "Return interesting things grouped by month",
-        "tags": ["interesting.archive"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "The user data was succesfully returned",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
-            }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
-          }
-        }
-      }
-    },
-    "/interesting/article": {
-      "get": {
-        "description": "Return interesting things grouped by month",
-        "tags": ["interesting.article"],
-        "security": [{
-          "bearer": []
-        }],
-        "responses": {
-          "200": {
-            "description": "The user data was succesfully returned",
-            "schema": {
-              "type": "object",
-              "items": {
-                "$ref": "#/definitions/user"
-              }
-            }
-          },
-          "default": {
-            "schema": { "$ref": "#/definitions/InternalError" }
           }
         }
       }
@@ -211,7 +44,7 @@
           "default": false
         },
         "data": {
-          "type": "mixed"
+          "type": "object"
         },
         "status": {
           "type": "integer",
@@ -222,44 +55,13 @@
     },
     "InternalError": {
       "allOf": [
-        { "$ref": "#/definitions/BaseError" },
+        {
+          "$ref" : "#/definitions/BaseError"
+        },
         {
           "properties": {
             "status": { "default" : 500 },
             "data": { "default" : "Internal server error" }
-          }
-        }
-      ]
-    },
-    "NotFoundError": {
-      "allOf": [
-        { "$ref": "#/definitions/BaseError" },
-        {
-          "properties": {
-            "status": { "default" : 404 },
-            "data": { "default" : "Not found" }
-          }
-        }
-      ]
-    },
-    "BadRequestError": {
-      "allOf": [
-        { "$ref": "#/definitions/BaseError" },
-        {
-          "properties": {
-            "status": { "default" : 400 },
-            "data": { "default" : "Bad request" }
-          }
-        }
-      ]
-    },
-    "NotAuthorizedError": {
-      "allOf": [
-        { "$ref": "#/definitions/BaseError" },
-        {
-          "properties": {
-            "status": { "default" : 401 },
-            "data": { "default" : "Not authorized" }
           }
         }
       ]

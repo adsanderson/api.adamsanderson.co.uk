@@ -1,6 +1,8 @@
 language: node_js
 node_js:
 - '5.5'
+before_script:
+- npm run lint
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAIETWHIH2VYDEX4KQ

@@ -1,0 +1,36 @@
+{
+        "allOf": [
+            {
+                "type": "object",
+                "required": [
+                    "data",
+                    "status",
+                    "success"
+                ],
+                "properties": {
+                    "success": {
+                        "type": "boolean",
+                        "default": false
+                    },
+                    "data": {
+                        "type": "object"
+                    },
+                    "status": {
+                        "type": "integer",
+                        "minimum": 100,
+                        "maximum": 600
+                    }
+                }
+            },
+            {
+                "properties": {
+                    "status": {
+                        "default": 500
+                    },
+                    "data": {
+                        "default": "Internal server error"
+                    }
+                }
+            }
+        ]
+}

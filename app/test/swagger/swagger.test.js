@@ -2,7 +2,7 @@
 
 const test = require('tap').test;
 var spec = require('swagger-tools').specs.v2;
-const api = require('../../../api.json');
+const api = require('../../../swagger');
 
 test('validate swagger', t => {
   spec.validate(api, function(err, result) {

@@ -22,12 +22,8 @@ const createTitle = require("./markdownCreator").createTitle;
 //     const thisItem = createLatestArticleItem(articleTimestamp, markdown);
 // }
 
-// function addTitle() {
-
-// }
-
 function buildArticle(markdown, currentMonthsArticle) {
-  return [markdown].concat([currentMonthsArticle]).join('\n\n');
+  return [currentMonthsArticle].concat([markdown]).join('\n\n');
 }
 
 function builder(articles) {
@@ -42,13 +38,15 @@ function builder(articles) {
 
     const markdown = markdownCreator(article);
 
-    const currentMonthsArticle = months[articleGroup];
+    let currentMonthsArticle = months[articleGroup];
 
     if (!currentMonthsArticle) {
-      console.log(createTitle('test', '2016-04-01T00:00:00'));
+      currentMonthsArticle = createTitle(`Interesting Stuff`, `${articleGroup}-01T00:00:00Z`);
     }
 
     months[articleGroup] = buildArticle(markdown, currentMonthsArticle);
+
+    console.log(months[articleGroup]);
 
     return {
       months: months
@@ -58,5 +56,6 @@ function builder(articles) {
 
 module.exports = function articlesBuilder(articles) {
   const groupedArticles = builder(articles);
+  // console.log(groupedArticles.months);
   return groupedArticles.months;
 };

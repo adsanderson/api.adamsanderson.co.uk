@@ -4,6 +4,7 @@
 
 const test = require("tap").test;
 const articleBuilder = require('../../interesting/markdownCreator').createMarkdown; // eslint-disable-line max-len
+const titleBuilder = require('../../interesting/markdownCreator').createTitle;
 
 function createDummyArticle(resolved_title, resolved_url, excerpt) {
   return {
@@ -38,3 +39,13 @@ test('escape markdown content from strings', t => {
   t.end();
 });
 
+test('build a YAML front matter block', t => {
+  const dummyDate = '2016-04-08T00:00:00Z';
+  const frontMatter = titleBuilder('test test', dummyDate);
+  
+  const frontMatterContainsDashes = frontMatter.indexOf('---');
+  const frontMatterContainsTitle = frontMatter.indexOf('test test');
+  const frontMatterContainsDate = frontMatter.indexOf(dummyDate);
+  
+  t.end();
+});

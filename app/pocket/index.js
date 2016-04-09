@@ -16,7 +16,7 @@ const config = {
 };
 
 function fetchReadingList() {
-  console.log(config);
+  console.log('fetching pocket articles tagged "reading"');
   return fetch('https://getpocket.com/v3/get', config)
     .then(response);
 }

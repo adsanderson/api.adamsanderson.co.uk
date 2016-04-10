@@ -35,11 +35,13 @@ test('articleBuilder: ', t => {
   let articles = articleBuilder(createArticles());
   const numberOfArticles = Object.keys(articles).length;
   const singleArticle = articles['2016-04'];
-  
-  t.notEqual(contains(singleArticle, '---'), -1, 'expect to contain front matter');
-  
+
+  const frontMatterHeader = contains(singleArticle, '---');
+
+  t.notEqual(frontMatterHeader, -1, 'expect to contain front matter');
+
   t.equal(numberOfArticles, 2, 'expect 3 articles to be in two groups');
   t.type(singleArticle, 'string', 'expect the group to be a string');
-  
+
   t.end();
 });

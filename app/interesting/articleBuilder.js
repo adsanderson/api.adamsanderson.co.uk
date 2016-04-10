@@ -41,7 +41,8 @@ function builder(articles) {
     let currentMonthsArticle = months[articleGroup];
 
     if (!currentMonthsArticle) {
-      currentMonthsArticle = createTitle(`Interesting Stuff`, `${articleGroup}-01T00:00:00Z`);
+      const titleDate = `${articleGroup}-01T00:00:00Z`;
+      currentMonthsArticle = createTitle(`Interesting Stuff`, titleDate);
     }
 
     months[articleGroup] = buildArticle(markdown, currentMonthsArticle);

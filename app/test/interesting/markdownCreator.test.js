@@ -42,10 +42,14 @@ test('escape markdown content from strings', t => {
 test('build a YAML front matter block', t => {
   const dummyDate = '2016-04-08T00:00:00Z';
   const frontMatter = titleBuilder('test test', dummyDate);
-  
+
   const frontMatterContainsDashes = frontMatter.indexOf('---');
   const frontMatterContainsTitle = frontMatter.indexOf('test test');
   const frontMatterContainsDate = frontMatter.indexOf(dummyDate);
-  
+
+  t.notEqual(frontMatterContainsDashes, -1);
+  t.notEqual(frontMatterContainsTitle, -1);
+  t.notEqual(frontMatterContainsDate, -1);
+
   t.end();
 });

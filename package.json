@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tap test/**/*.test.js",
     "coverage": "tap test/**/*.test.js --cov --coverage-report=text",
-    "lint": "eslint app/**/* app.js controllers/**/*",
+    "lint": "eslint app/**/* *.js controllers/**/*",
     "start": "node api_server.js"
   },
   "author": "Adam Sanderson",

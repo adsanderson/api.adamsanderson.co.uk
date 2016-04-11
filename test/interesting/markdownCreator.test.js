@@ -3,8 +3,8 @@
 'use strict';
 
 const test = require("tap").test;
-const articleBuilder = require('../../interesting/markdownCreator').createMarkdown; // eslint-disable-line max-len
-const titleBuilder = require('../../interesting/markdownCreator').createTitle;
+const articleBuilder = require('../../app/interesting/markdownCreator').createMarkdown; // eslint-disable-line max-len
+const titleBuilder = require('../../app/interesting/markdownCreator').createTitle;
 
 function createDummyArticle(resolved_title, resolved_url, excerpt) {
   return {

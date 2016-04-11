@@ -1,7 +1,4 @@
-'use strict';
-
-const test = require("tap").test;
-const articleBuilder = require('../../interesting/articleBuilder');
+'ues strict';
 
 const DATES = {
   "2016-03-05": 1457167988,
@@ -27,21 +24,8 @@ function createArticles() {
   ];
 }
 
-function contains(article, content) {
-  return article.indexOf(content);
+module.exports = {
+  createArticle: createArticle,
+  createArticles: createArticles,
+  DATES: DATES
 }
-
-test('articleBuilder: ', t => {
-  let articles = articleBuilder(createArticles());
-  const numberOfArticles = Object.keys(articles).length;
-  const singleArticle = articles['2016-04'];
-
-  const frontMatterHeader = contains(singleArticle, '---');
-
-  t.notEqual(frontMatterHeader, -1, 'expect to contain front matter');
-
-  t.equal(numberOfArticles, 2, 'expect 3 articles to be in two groups');
-  t.type(singleArticle, 'string', 'expect the group to be a string');
-
-  t.end();
-});

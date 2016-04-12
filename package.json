@@ -4,8 +4,8 @@
   "description": "API to access and create content for adamsanderson.co.uk",
   "main": "app.js",
   "scripts": {
-    "test": "tap test/**/*.test.js",
-    "coverage": "tap test/**/*.test.js --cov --coverage-report=text",
+    "test": "tap test/**/*.test.js test/*.test.js",
+    "coverage": "npm test -- --cov --coverage-report=text",
     "lint": "eslint app/**/* *.js controllers/**/*",
     "start": "node api_server.js"
   },

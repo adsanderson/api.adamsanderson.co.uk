@@ -20,7 +20,10 @@ function createArticles() {
   return [
     createArticle('test title 1', 'http://example.com', undefined, DATES['2016-03-05'], DATES['2016-03-05']),
     createArticle('test title 2', 'http://example.com', undefined, DATES['2016-03-05'], DATES['2016-04-05']),
-    createArticle('test title 3', 'http://example.com', 'test', DATES['2016-03-05'], DATES['2016-04-10'])
+    createArticle('test title 3', 'http://example.com', 'test', DATES['2016-03-05'], DATES['2016-04-10']),
+    createArticle('test title 4', 'http://example.com', 'test', DATES['2016-03-05'], DATES['2016-04-10']),
+    createArticle('test title 5', 'http://example.com', 'test', DATES['2016-03-05'], DATES['2016-04-10']),
+    createArticle('test title 6', 'http://example.com', 'test', DATES['2016-03-05'], DATES['2016-04-10'])
   ];
 }
 

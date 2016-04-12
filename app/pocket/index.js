@@ -11,6 +11,7 @@ const config = {
   body: JSON.stringify({
     consumer_key: process.env.CONSUMER_KEY, // eslint-disable-line camelcase
     access_token: process.env.ACCESS_TOKEN, // eslint-disable-line camelcase
+    state: 'all',
     tag: "reading"
   })
 };

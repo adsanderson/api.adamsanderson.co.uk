@@ -3,8 +3,9 @@
 'use strict';
 
 const test = require("tap").test;
-const articleBuilder = require('../../interesting/markdownCreator').createMarkdown; // eslint-disable-line max-len
-const titleBuilder = require('../../interesting/markdownCreator').createTitle;
+const articleBuilder = require('../../app/interesting/markdownCreator').createMarkdown; // eslint-disable-line max-len
+const titleBuilder = require('../../app/interesting/markdownCreator').createTitle; // eslint-disable-line max-len
+const createH4 = require('../../app/interesting/markdownCreator').createH4;
 
 function createDummyArticle(resolved_title, resolved_url, excerpt) {
   return {
@@ -51,5 +52,17 @@ test('build a YAML front matter block', t => {
   t.notEqual(frontMatterContainsTitle, -1);
   t.notEqual(frontMatterContainsDate, -1);
 
+  t.end();
+});
+
+test('build a H4 heading', t => {
+  const dummyText = 'heading heading';
+  const heading4 = createH4(dummyText);
+
+  const headingHashes = heading4.indexOf('####');
+  const headingText = heading4.indexOf(dummyText);
+
+  t.notEqual(headingHashes, -1);
+  t.notEqual(headingText, -1);
   t.end();
 });

@@ -39,6 +39,17 @@ function escapeQuoteMd(text) {
   });
 }
 
+function createH4(text) {
+  return remark.stringify({
+    type: "heading",
+    depth: 4,
+    children: [{
+      type: "text",
+      value: text
+    }]
+  });
+}
+
 function createLink(article) {
   return escapeLinkMd(article.resolved_title, article.resolved_url);
 }
@@ -68,5 +79,6 @@ function createMarkdown(article) {
 
 module.exports = {
   createMarkdown: createMarkdown,
-  createTitle: escapeTitle
+  createTitle: escapeTitle,
+  createH4: createH4
 };

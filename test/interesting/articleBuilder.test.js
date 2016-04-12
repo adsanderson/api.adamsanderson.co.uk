@@ -17,10 +17,10 @@ test('articleBuilder: ', t => {
 
   t.notEqual(frontMatterHeader, -1, 'expect to contain front matter');
 
-  t.equal(numberOfArticles, 3, 'expect 3 articles to be in *2* groups plus latest');
+  t.equal(numberOfArticles, 3, 'expect *2* groups and latest');
   t.type(singleArticle, 'string', 'expect the group to be a string');
   t.ok(articles.latest);
-  t.type(articles.latest, 'string')
+  t.type(articles.latest, 'string');
 
   t.end();
 });

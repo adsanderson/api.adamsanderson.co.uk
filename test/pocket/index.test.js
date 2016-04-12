@@ -5,12 +5,13 @@ const proxyquire = require("proxyquire");
 
 const pocket = require('../../app/pocket');
 
-function promiseStub () {
+function promiseStub() {
   return Promise.resolve();
 }
 
-const proxyStubs = {};
-proxyStubs['fetch'] = promiseStub;
+const proxyStubs = {
+  fetch: promiseStub
+};
 proxyStubs['./response'] = promiseStub;
 
 const pocketProxy = proxyquire('../../app/pocket', proxyStubs);

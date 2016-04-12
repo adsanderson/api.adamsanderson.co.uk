@@ -31,4 +31,4 @@ module.exports = {
   createArticle: createArticle,
   createArticles: createArticles,
   DATES: DATES
-}
+};

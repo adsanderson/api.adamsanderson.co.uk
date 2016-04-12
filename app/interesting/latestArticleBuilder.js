@@ -9,7 +9,7 @@ function latestArticleBuilder(articlesGroupedByDay) {
 
   let articlesLength = 0;
   const titleDate = `${dayGroups[0]}T00:00:00Z`;
-  const title = createTitle(`Interesting Stuff: the latest`, titleDate);
+  const title = createTitle(`The latest interesting stuff`, titleDate);
   let latestArticles = [title];
 
   dayGroups.some(dayGroup => {

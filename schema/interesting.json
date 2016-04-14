@@ -3,6 +3,16 @@
   "properties" : {
     "message": {
       "type": "string"
+    },
+    "posts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
-  }
+  },
+  "required": [
+    "message",
+    "posts"
+  ]
 }

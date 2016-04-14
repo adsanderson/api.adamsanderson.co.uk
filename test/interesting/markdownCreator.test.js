@@ -44,13 +44,17 @@ test('build a YAML front matter block', t => {
   const dummyDate = '2016-04-08T00:00:00Z';
   const frontMatter = titleBuilder('test test', dummyDate);
 
-  const frontMatterContainsDashes = frontMatter.indexOf('---');
-  const frontMatterContainsTitle = frontMatter.indexOf('test test');
-  const frontMatterContainsDate = frontMatter.indexOf(dummyDate);
+  const containsDashes = frontMatter.indexOf('---');
+  const containsTitle = frontMatter.indexOf('test test');
+  const containsDate = frontMatter.indexOf(dummyDate);
+  const containsTags = frontMatter.indexOf('tags:');
+  const containsTagReadingList = frontMatter.indexOf('- Reading list');
 
-  t.notEqual(frontMatterContainsDashes, -1);
-  t.notEqual(frontMatterContainsTitle, -1);
-  t.notEqual(frontMatterContainsDate, -1);
+  t.notEqual(containsDashes, -1, 'contains heading dashes');
+  t.notEqual(containsTitle, -1, 'contains the input title');
+  t.notEqual(containsDate, -1, 'contains the date');
+  t.notEqual(containsTags, -1, 'contains the tag category');
+  t.notEqual(containsTagReadingList, -1, 'contains the reading list tag');
 
   t.end();
 });

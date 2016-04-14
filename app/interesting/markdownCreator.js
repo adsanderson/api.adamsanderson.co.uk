@@ -6,7 +6,9 @@ function escapeTitle(title, date) {
   return remark.stringify({
     type: "yaml",
     value: `title: ${title}
-date: ${date}`
+date: ${date}
+tags:
+- Reading list`
   });
 }
 

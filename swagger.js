@@ -25,7 +25,7 @@ paths.paths["/interesting"] = {
     tags: ["interesting"],
     responses: {
       200: {
-        description: "The user data was succesfully returned",
+        description: "A list of interesting articles is returned",
         schema: interestingSchema
       },
       default: {

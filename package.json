@@ -1,6 +1,6 @@
 {
   "name": "api.adamsanderson.co.uk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "API to access and create content for adamsanderson.co.uk",
   "main": "app.js",
   "scripts": {

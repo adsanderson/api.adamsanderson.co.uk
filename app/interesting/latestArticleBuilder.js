@@ -8,7 +8,7 @@ function latestArticleBuilder(articlesGroupedByDay) {
   const dayGroups = Object.keys(currentLatestArticles).sort().reverse();
 
   let articlesLength = 0;
-  const titleDate = `${dayGroups[0]}T00:00:00Z`;
+  const titleDate = `${dayGroups[0]}T00:00:01Z`;
   const title = createTitle(`The latest interesting stuff`, titleDate);
   let latestArticles = [title];
 

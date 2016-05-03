@@ -5,8 +5,17 @@ const markdownCreator = require("./markdownCreator").createMarkdown;
 const createTitle = require("./markdownCreator").createTitle;
 const latestArticleBuilder = require('./latestArticleBuilder');
 
+function insertExcerpt(articleMarkdown) {
+  const article = articleMarkdown;
+  if (article.split('\n\n').length === 6) {
+    return `<!-- more -->`;
+  }
+  return ``;
+}
+
 function buildArticle(markdown, currentMonthsArticle) {
-  return [currentMonthsArticle].concat([markdown]).join('\n\n');
+  const excerptMarkdown = `${markdown}${insertExcerpt(currentMonthsArticle)}`;
+  return [currentMonthsArticle].concat([excerptMarkdown]).join('\n\n');
 }
 
 function returnBuiltDays(article, grouped, markdown) {

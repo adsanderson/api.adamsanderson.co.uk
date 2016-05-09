@@ -5,10 +5,10 @@ const barcodeGenerator = require('./barcode-generator');
 const dataURIGenerator = require('./data-uri-generator');
 
 function generateBarcode(requestText) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     barcodeGenerator(requestText)
     .then(dataURIGenerator)
-    .then((barcode) => {
+    .then(barcode => {
       resolve({
         text: requestText,
         barcode: barcode

@@ -12,7 +12,7 @@ function buildRequestString(requestQueryObj, pageNumber) {
   const version = pad(requestQueryObj.version, 2);
   const pageNumberFormatted = pad((pageNumber + 1), 2);
   const numberofpages = pad(requestQueryObj.numberofpages, 2);
-  return `S-${formtype}-${formnumber}-${version}~${pageNumberFormatted}~${numberofpages}`.trim();
+  return `S-${formtype}-${formnumber}-${version}~${pageNumberFormatted}~${numberofpages}`; // eslint-disable-line max-len
 }
 
 module.exports = function barcodeTextGenerator(requestQueryObj) {

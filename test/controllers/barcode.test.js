@@ -13,7 +13,6 @@ const barcodeProxy = proxyquire('../../controllers/barcode',
 const barcodeSchema = require('../../schema/barcode');
 
 test('Controller: barcode', t => {
-
   const requestDummy = {
     request: {
       query: {}

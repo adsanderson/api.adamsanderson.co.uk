@@ -1,6 +1,7 @@
 {
     "extends": "google",
     "rules": {
+        "max-len": [1, 100],
         "require-jsdoc": 0
     }
 }

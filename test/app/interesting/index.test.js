@@ -6,7 +6,7 @@ const proxyquire = require('proxyquire');
 const pocketDummy = {};
 pocketDummy['../pocket'] = () => {
   return;
-}
+};
 const articleBuilderDummy = {};
 articleBuilderDummy['./articleBuilder'] = () => {
   return;
@@ -16,7 +16,6 @@ const interesting = proxyquire('../../../app/interesting',
   articleBuilderDummy);
 
 test('interesting,', t => {
-
   let gen = interesting.read();
 
   gen.next();

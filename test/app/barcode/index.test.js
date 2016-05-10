@@ -3,7 +3,7 @@
 const test = require('tap').test;
 const proxyquire = require('proxyquire');
 
-function textPassThroughDummy (text) {
+function textPassThroughDummy(text) {
   return Promise.resolve(text);
 }
 

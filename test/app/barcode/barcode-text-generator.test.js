@@ -9,7 +9,7 @@ test('barcode text generator', t => {
     formnumber: 1,
     version: 2,
     numberofpages: 5
-  }
+  };
 
   const result = barcodeTextGenerator(requestQSObj);
 

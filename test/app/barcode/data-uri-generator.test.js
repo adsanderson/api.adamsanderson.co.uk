@@ -5,7 +5,7 @@ const proxyquire = require('proxyquire');
 
 const requireStubs = {};
 requireStubs['image-data-uri'] = {
-  encode: function () {
+  encode: function() {
     return 'dummy response';
   }
 };

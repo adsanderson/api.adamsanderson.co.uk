@@ -1,8 +1,8 @@
 'use strict';
 
 const test = require("tap").test;
-const articleBuilder = require('../../app/interesting/articleBuilder');
-const createArticles = require('../utils/articles.fixture').createArticles;
+const articleBuilder = require('../../../app/interesting/articleBuilder');
+const createArticles = require('../../utils/articles.fixture').createArticles;
 
 function contains(article, content) {
   return article.indexOf(content);

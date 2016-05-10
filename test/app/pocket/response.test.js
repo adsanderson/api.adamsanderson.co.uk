@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require("tap").test;
-var response = require("../../app/pocket/response");
+var response = require("../../../app/pocket/response");
 
 test('error is thrown with a 400+ response', t => {
   const res = {

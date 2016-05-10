@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require("tap").test;
-const articleGrouper = require('../../app/interesting/articleGrouper');
+const articleGrouper = require('../../../app/interesting/articleGrouper');
 /*
   1457167982 // 2016-03-05T08:53:02.823Z
   1459846382 // 2016-04-05T08:53:02.823Z

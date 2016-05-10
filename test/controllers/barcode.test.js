@@ -33,6 +33,6 @@ test('Controller: barcode', t => {
   const validationErrors = validationResult.errors.length;
 
   t.equal(validationErrors, 0, 'expect a valid schema to be returned');
-  t.equal(requestDummy.body.barcode, bodyResult);
+  t.equal(requestDummy.body.barcodes, bodyResult);
   t.end();
 });

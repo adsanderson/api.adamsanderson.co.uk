@@ -3,7 +3,7 @@
 const test = require('tap').test;
 const proxyquire = require("proxyquire");
 
-const pocket = require('../../app/pocket');
+const pocket = require('../../../app/pocket');
 
 function promiseStub() {
   return Promise.resolve();
@@ -14,7 +14,7 @@ const proxyStubs = {
 };
 proxyStubs['./response'] = promiseStub;
 
-const pocketProxy = proxyquire('../../app/pocket', proxyStubs);
+const pocketProxy = proxyquire('../../../app/pocket', proxyStubs);
 
 test('module loads', t => {
   t.ok(pocket);

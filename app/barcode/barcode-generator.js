@@ -13,10 +13,9 @@ module.exports = function textToBarcode(text) {
       // textsize:		13				// Font size, in points
     }, function(err, png) {
       if (err) {
-        reject(err);
-      } else {
-        resolve(png);
+        return reject(err);
       }
+      return resolve(png);
     });
   });
 };

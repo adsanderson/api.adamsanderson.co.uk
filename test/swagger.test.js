@@ -19,6 +19,8 @@ test('validate swagger', t => {
         console.log('Errors');
         console.log('------');
 
+        console.log('}}}}}}}}}}}}}}}}', result.errors);
+
         result.errors.forEach(function(err) {
           console.log('#/' + err.path.join('/') + ': ' + err.message);
         });

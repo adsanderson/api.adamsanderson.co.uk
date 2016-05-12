@@ -20,7 +20,7 @@ const paths = {
   paths: {}
 };
 
-paths.paths["/interesting"] = {
+paths.paths['/interesting'] = {
   get: {
     description: "Return a list of interesting articles",
     tags: ["interesting"],
@@ -37,7 +37,7 @@ paths.paths["/interesting"] = {
   }
 };
 
-paths.paths["/barcode"] = {
+paths.paths['/barcode'] = {
   get: {
     description: "Return a list of barcodes",
     tags: ["barcode"],
@@ -74,6 +74,23 @@ paths.paths["/barcode"] = {
       default: {
         description: "unexpected error",
         schema: barcodeSchema
+      }
+    }
+  }
+};
+
+paths.paths['/facebook-bot/train'] = {
+  get: {
+    description: "setup webook",
+    tags: ["facebookbot"],
+    responses: {
+      200: {
+        description: "A list of interesting articles is returned",
+        schema: interestingSchema
+      },
+      default: {
+        description: "unexpected error",
+        schema: internalErrorSchema
       }
     }
   }

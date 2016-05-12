@@ -1,0 +1,30 @@
+{
+  "type": "object",
+  "properties" : {
+    "message": {
+      "type": "string"
+    },
+    "barcodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          }
+        },
+        "required" : [
+          "text",
+          "barcode"
+        ]
+      }
+    }
+  },
+  "required": [
+    "message",
+    "barcodes"
+  ]
+}

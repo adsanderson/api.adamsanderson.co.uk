@@ -1,7 +1,7 @@
 'use strict';
 
 const test = require('tap').test;
-const latestArticleBuilder = require('../../app/interesting/latestArticleBuilder'); // eslint-disable-line max-len
+const latestArticleBuilder = require('../../../app/interesting/latestArticleBuilder'); // eslint-disable-line max-len
 
 const groupedArticles = {};
 groupedArticles["2016-04-10"] = ['### test 1', '### test 2', '### test 3', '### test 4']; // eslint-disable-line max-len

@@ -8,7 +8,7 @@ const latestArticleBuilder = require('./latestArticleBuilder');
 function insertExcerpt(articleMarkdown) {
   const article = articleMarkdown;
   if (article.split('> ').length === 3) {
-    return `<!-- more -->`;
+    return `\n\n<!-- more -->`;
   }
   return ``;
 }

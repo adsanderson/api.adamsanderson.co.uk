@@ -7,7 +7,8 @@
     "test": "tap 'test/**/*.test.js'",
     "coverage": "npm test -- --cov --coverage-report=text",
     "lint": "eslint app/**/* *.js controllers/**/* test/**/*",
-    "start": "node api_server.js"
+    "start": "node api_server.js",
+    "can-push": "npm run coverage && npm run lint"
   },
   "author": "Adam Sanderson",
   "license": "MIT",

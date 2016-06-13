@@ -1,6 +1,6 @@
 'use strict';
 
-const remark = require('remark');
+const remark = require('remark')();
 
 function escapeTitle(title, date) {
   return remark.stringify({

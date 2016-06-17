@@ -14,8 +14,7 @@ tags:
 
 function escapeLinkMd(text, link) {
   return remark.stringify({
-    type: "heading",
-    depth: 3,
+    type: "paragraph",
     children: [{
       type: "link",
       title: null,

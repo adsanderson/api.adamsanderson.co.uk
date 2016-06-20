@@ -5,7 +5,7 @@ const listOfFlags = {
   falsey: false
 };
 
-function getFlagged (flag) {
+function getFlagged(flag) {
   if (listOfFlags.hasOwnProperty(flag)) {
     return listOfFlags[flag];
   }

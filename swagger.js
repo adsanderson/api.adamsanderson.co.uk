@@ -79,6 +79,23 @@ paths.paths["/barcode"] = {
   }
 };
 
+paths.paths["/flagged"] = {
+  get: {
+    description: "Return if the feature flag is ready",
+    tags: ["flagged"],
+    responses: {
+      200: {
+        description: "if the feature is allowed",
+        schema: interestingSchema
+      },
+      default: {
+        description: "unexpected error",
+        schema: internalErrorSchema
+      }
+    }
+  }
+};
+
 const api = Object.assign({}, header, paths);
 
 module.exports = api;

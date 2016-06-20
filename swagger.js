@@ -3,6 +3,7 @@
 const interestingSchema = require('./schema/interesting');
 const barcodeSchema = require('./schema/barcode');
 const internalErrorSchema = require('./schema/errors/internal');
+const flaggedSchema = require('./schema/flagged');
 
 const header = {
   swagger: "2.0",
@@ -74,6 +75,30 @@ paths.paths["/barcode"] = {
       default: {
         description: "unexpected error",
         schema: barcodeSchema
+      }
+    }
+  }
+};
+
+paths.paths["/flagged"] = {
+  get: {
+    description: "Return if the feature flag is ready",
+    tags: ["flagged"],
+    parameters: [{
+      name: "flag",
+      description: "flag name",
+      required: true,
+      type: "string",
+      in: "query"
+    }],
+    responses: {
+      200: {
+        description: "if the feature is allowed",
+        schema: flaggedSchema
+      },
+      default: {
+        description: "unexpected error",
+        schema: internalErrorSchema
       }
     }
   }

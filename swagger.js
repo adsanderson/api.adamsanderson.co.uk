@@ -4,6 +4,7 @@ const interestingSchema = require('./schema/interesting');
 const barcodeSchema = require('./schema/barcode');
 const internalErrorSchema = require('./schema/errors/internal');
 const flaggedSchema = require('./schema/flagged');
+const flagged = require('./app/flagged');
 
 const header = {
   swagger: "2.0",
@@ -104,6 +105,31 @@ paths.paths["/flagged"] = {
   }
 };
 
+if (flagged('render')) {
+  paths.paths["/render"] = {
+    get: {
+      description: "Return a DOM string element",
+      tags: ["render"],
+      // parameters: [{
+      //   name: "flag",
+      //   description: "flag name",
+      //   required: true,
+      //   type: "string",
+      //   in: "query"
+      // }],
+      responses: {
+        200: {
+          description: "DOM string returned",
+          schema: flaggedSchema
+        },
+        default: {
+          description: "unexpected error",
+          schema: internalErrorSchema
+        }
+      }
+    }
+  };
+}
 const api = Object.assign({}, header, paths);
 
 module.exports = api;

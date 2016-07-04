@@ -1,5 +1,8 @@
 'use strict';
 
+const app = require('./app');
+
 module.exports = function() {
-  return `test`;
+  const domString = app();
+  return domString;
 };

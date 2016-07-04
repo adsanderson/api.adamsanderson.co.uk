@@ -10,9 +10,6 @@ function getFlagged(flag) {
   if (listOfFlags.hasOwnProperty(flag)) {
     return listOfFlags[flag];
   }
-  if (process.env.NODE_ENV === 'Testing') {
-    return true;
-  }
   return false;
 }
 

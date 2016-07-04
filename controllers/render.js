@@ -1,11 +1,11 @@
 'use strict';
 
-// const render = require("../app/render");
+const render = require("../app/render");
 
 module.exports.get = function * () {
-  // let barcodes = yield barcode.read(this.request.query);
+  const domString = render();
   this.body = {
     message: 'rendered DOM',
-    DOMString: ''
+    DOMString: domString
   };
 };

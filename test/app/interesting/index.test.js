@@ -22,7 +22,7 @@ test('interesting,', t => {
   gen.next();
   gen.next({
     list: []
-  }).value;
+  });
 
   t.truthy(interesting);
   t.truthy(interesting.read);

@@ -1,9 +1,10 @@
 'use strict';
 
-const test = require("tap").test;
+const test = require('ava').test;
 var response = require("../../../app/pocket/response");
 
 test('error is thrown with a 400+ response', t => {
+  t.plan(1);
   const res = {
     status: 401
   };
@@ -11,10 +12,10 @@ test('error is thrown with a 400+ response', t => {
   t.throws(function() {
     response(res);
   });
-  t.end();
 });
 
 test('error is not thrown with a 400+ response', t => {
+  t.plan(2);
   const res = {
     status: 200,
     json: function() {
@@ -22,9 +23,8 @@ test('error is not thrown with a 400+ response', t => {
     }
   };
 
-  t.doesNotThrow(() => {
+  t.notThrows(() => {
     response(res);
   });
-  t.equal(response(res), true);
-  t.end();
+  t.is(response(res), true);
 });

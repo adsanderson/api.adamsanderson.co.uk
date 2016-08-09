@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tap').test;
+const test = require('ava').test;
 const proxyquire = require('proxyquire');
 const validate = require('jsonschema').validate;
 
@@ -13,6 +13,7 @@ const interestingProxy = proxyquire('../../controllers/interesting',
 const interestingSchema = require('../../schema/interesting');
 
 test('Controller: interesting', t => {
+  t.plan(1);
   let gen = interestingProxy.get();
 
   gen.next();
@@ -21,6 +22,5 @@ test('Controller: interesting', t => {
   const validationResult = validate(interestingProxy.body, interestingSchema);
   const validationErrors = validationResult.errors.length;
 
-  t.equal(validationErrors, 0, 'expect a valid schema to be returned');
-  t.end();
+  t.is(validationErrors, 0, 'expect a valid schema to be returned');
 });

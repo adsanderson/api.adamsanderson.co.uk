@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tap').test;
+const test = require('ava').test;
 const proxyquire = require('proxyquire');
 const validate = require('jsonschema').validate;
 
@@ -13,6 +13,7 @@ const barcodeProxy = proxyquire('../../controllers/barcode',
 const barcodeSchema = require('../../schema/barcode');
 
 test('Controller: barcode', t => {
+  t.plan(2);
   const requestDummy = {
     request: {
       query: {}
@@ -32,7 +33,6 @@ test('Controller: barcode', t => {
   const validationResult = validate(requestDummy.body, barcodeSchema);
   const validationErrors = validationResult.errors.length;
 
-  t.equal(validationErrors, 0, 'expect a valid schema to be returned');
-  t.equal(requestDummy.body.barcodes, bodyResult);
-  t.end();
+  t.is(validationErrors, 0, 'expect a valid schema to be returned');
+  t.is(requestDummy.body.barcodes, bodyResult);
 });

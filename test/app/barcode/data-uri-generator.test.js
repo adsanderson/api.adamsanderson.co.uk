@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require("tap").test;
+const test = require('ava').test;
 const proxyquire = require('proxyquire');
 
 const requireStubs = {};
@@ -12,11 +12,11 @@ requireStubs['image-data-uri'] = {
 
 const dataURIGenerator = proxyquire('../../../app/barcode/data-uri-generator', requireStubs);
 
-test('barcode text generator', t => {
+test('data-uri generator', t => {
+  t.plan(1);
   const bufferDummy = new Buffer('');
 
   const result = dataURIGenerator(bufferDummy);
 
-  t.equal(result, 'dummy response', 'expect the media type to be png');
-  t.end();
+  t.is(result, 'dummy response', 'expect the media type to be png');
 });

@@ -1,9 +1,10 @@
 'use strict';
 
-const test = require("tap").test;
+const test = require('ava').test;
 const barcodeTextGenerator = require('../../../app/barcode/barcode-text-generator');
 
 test('barcode text generator', t => {
+  t.plan(7);
   const requestQSObj = {
     formtype: 'abc',
     formnumber: 1,
@@ -15,13 +16,12 @@ test('barcode text generator', t => {
 
   const firstMetadataString = result[0];
 
-  t.ok(firstMetadataString.includes('S-ABC-'), 'expect form type in uppercase');
-  t.ok(firstMetadataString.includes('-001-'), 'expect three digit form number');
-  t.ok(firstMetadataString.includes('-02~'), 'expect two digit version');
-  t.ok(firstMetadataString.includes('~01~'), 'expect first page');
-  t.ok(firstMetadataString.includes('~05'), 'expect five pages total');
+  t.true(firstMetadataString.includes('S-ABC-'), 'expect form type in uppercase');
+  t.true(firstMetadataString.includes('-001-'), 'expect three digit form number');
+  t.true(firstMetadataString.includes('-02~'), 'expect two digit version');
+  t.true(firstMetadataString.includes('~01~'), 'expect first page');
+  t.true(firstMetadataString.includes('~05'), 'expect five pages total');
 
-  t.equal(result.length, 5, 'expect 5 strings to be returned');
-  t.equal(typeof firstMetadataString, 'string', 'expect a string to be returned');
-  t.end();
+  t.is(result.length, 5, 'expect 5 strings to be returned');
+  t.is(typeof firstMetadataString, 'string', 'expect a string to be returned');
 });

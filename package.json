@@ -4,7 +4,7 @@
   "description": "API to access and create content for adamsanderson.co.uk",
   "main": "app.js",
   "scripts": {
-    "test": "ava 'test/**/*.test.js'",
+    "test": "ava \"test/**/*.test.js\"",
     "coverage": "npm test",
     "lint": "eslint app/**/* *.js controllers/**/* test/**/*",
     "start": "node api_server.js",

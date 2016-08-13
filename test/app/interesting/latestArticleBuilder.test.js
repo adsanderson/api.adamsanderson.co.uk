@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tap').test;
+const test = require('ava').test;
 const latestArticleBuilder = require('../../../app/interesting/latestArticleBuilder'); // eslint-disable-line max-len
 
 const groupedArticles = {};
@@ -9,6 +9,7 @@ groupedArticles["2016-04-05"] = ['### test 5', '### test 6'];
 groupedArticles["2016-03-05"] = ['### test 7', '### test 8'];
 
 test('return a fixed length array of articles', t => {
+  t.plan(7);
   const latestArticle = latestArticleBuilder(groupedArticles);
 
   const numberOfHeadings = (latestArticle.match(/\n###\s/g) || []).length;
@@ -18,13 +19,11 @@ test('return a fixed length array of articles', t => {
   const inArticle2nd = (latestArticle.match(/test 5/g) || []).length;
   const notInArticle = (latestArticle.match(/test 7/g) || []).length;
 
-  t.type(latestArticle, 'string');
-  t.equal(numberOfHeadings, 6, 'expect 6 heading to be included');
-  t.equal(numberOfDates, 2, 'expect 2 heading dates');
-  t.equal(numberOfNewlines, 8, 'expect 8 new lines');
-  t.equal(inArticle1st, 1, 'expect 1 instance of `test 1`');
-  t.equal(inArticle2nd, 1, 'expect 1 instance of `test 5`');
-  t.equal(notInArticle, 0, 'expect test 7 not be included in the article');
-
-  t.end();
+  t.is(typeof latestArticle, 'string');
+  t.is(numberOfHeadings, 6, 'expect 6 heading to be included');
+  t.is(numberOfDates, 2, 'expect 2 heading dates');
+  t.is(numberOfNewlines, 8, 'expect 8 new lines');
+  t.is(inArticle1st, 1, 'expect 1 instance of `test 1`');
+  t.is(inArticle2nd, 1, 'expect 1 instance of `test 5`');
+  t.is(notInArticle, 0, 'expect test 7 not be included in the article');
 });

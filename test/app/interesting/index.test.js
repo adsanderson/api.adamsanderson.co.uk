@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tap').test;
+const test = require('ava').test;
 const proxyquire = require('proxyquire');
 
 const pocketDummy = {};
@@ -16,15 +16,14 @@ const interesting = proxyquire('../../../app/interesting',
   articleBuilderDummy);
 
 test('interesting,', t => {
+  t.plan(2);
   let gen = interesting.read();
 
   gen.next();
-  const result = gen.next({
+  gen.next({
     list: []
-  }).value;
+  });
 
-  t.ok(result instanceof Promise, 'A promise is returned');
-  t.ok(interesting);
-  t.ok(interesting.read);
-  t.end();
+  t.truthy(interesting);
+  t.truthy(interesting.read);
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require('tap').test;
+const test = require('ava').test;
 var spec = require('swagger-tools').specs.v2;
 const api = require('../swagger');
 
@@ -39,7 +39,6 @@ test('validate swagger', t => {
       // }
     }
 
-    t.notOk(result, 'swagger validator returned error/warning results');
-    t.end();
+    t.falsy(result, 'swagger validator returned error/warning results');
   });
 });

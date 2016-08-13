@@ -1,6 +1,6 @@
 'use strict';
 
-const test = require("tap").test;
+const test = require('ava').test;
 const proxyquire = require('proxyquire');
 
 function passing(opt, cb) {
@@ -17,21 +17,22 @@ requireStubs['bwip-js'] = {};
 const barcodeGenerator = proxyquire('../../../app/barcode/barcode-generator',
   requireStubs);
 
-test('barcode text generator: resolve', t => {
+test('barcode generator: resolve', t => {
+  t.plan(1);
   requireStubs['bwip-js'].toBuffer = passing;
-  barcodeGenerator()
+  return barcodeGenerator()
   .then(() => {
-    t.end();
+    t.pass('resolved');
     requireStubs['bwip-js'] = {};
   });
 });
 
-test('barcode text generator: resolve', t => {
+test('barcode generator: resolve', t => {
+  t.plan(1);
   requireStubs['bwip-js'].toBuffer = failing;
-  barcodeGenerator()
+  return barcodeGenerator()
   .catch(err => {
-    t.equal(err, 'fail');
-    t.end();
+    t.is(err, 'fail');
     requireStubs['bwip-js'] = {};
   });
 });

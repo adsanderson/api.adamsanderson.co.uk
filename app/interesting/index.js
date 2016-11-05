@@ -4,8 +4,11 @@ var pocket = require("../pocket");
 var articleBuilder = require("./articleBuilder");
 
 function * read() {
-  let posts = yield pocket();
-  return Promise.resolve(articleBuilder(posts.list));
+  const posts = yield pocket();
+  const response = {
+    latest: articleBuilder(posts.list).latest
+  };
+  return Promise.resolve(response);
 }
 
 module.exports = {

@@ -73,5 +73,5 @@ module.exports = function articlesBuilder(articles) {
     latest: latestArticleBuilder(groupedArticles.days)
   };
 
-  return Object.assign({}, latestArticle);
+  return Object.assign({}, latestArticle, groupedArticles.months);
 };

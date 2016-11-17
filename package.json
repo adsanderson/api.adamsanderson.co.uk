@@ -16,7 +16,7 @@
   "author": "Adam Sanderson",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.16.0",
+    "ava": "^0.17.0",
     "depcheck": "^0.6.4",
     "eslint": "^3.2.1",
     "eslint-config-google": "^0.6.0",

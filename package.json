@@ -23,7 +23,7 @@
     "eslint-config-node-style-guide": "^3.0.0",
     "flow-bin": "^0.33.0",
     "husky": "^0.11.6",
-    "jsonschema": "^1.1.0",
+    "jsonschema": "^1.1.1",
     "proxyquire": "^1.7.4",
     "sinon": "^1.17.5",
     "swagger-tools": "^0.10.1",

@@ -22,7 +22,7 @@
     "eslint-config-google": "^0.6.0",
     "eslint-config-node-style-guide": "^3.0.0",
     "flow-bin": "^0.33.0",
-    "husky": "^0.11.6",
+    "husky": "^0.12.0",
     "jsonschema": "^1.1.0",
     "proxyquire": "^1.7.4",
     "sinon": "^1.17.5",

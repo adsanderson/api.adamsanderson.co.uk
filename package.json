@@ -34,7 +34,7 @@
     "fleek-router": "^1.1.3",
     "hangouts-bot": "^0.2.1",
     "image-data-uri": "^1.0.0",
-    "koa": "^1.2.1",
+    "koa": "^2.0.1",
     "node-fetch": "^1.6.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",

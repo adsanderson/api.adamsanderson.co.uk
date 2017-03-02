@@ -11,7 +11,7 @@
     "prepush": "npm run coverage",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "depcheck": "depcheck --ignores=\"eslint-config-google, eslint-config-node-style-guide, husky\"",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [

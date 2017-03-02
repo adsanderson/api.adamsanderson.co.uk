@@ -1,22 +1,22 @@
-'ues strict';
+'ues strict'
 
 const DATES = {
-  "2016-03-05": 1457167988,
-  "2016-04-05": 1459846382,
-  "2016-04-10": 1460278382
-};
+  '2016-03-05': 1457167988,
+  '2016-04-05': 1459846382,
+  '2016-04-10': 1460278382
+}
 
-function createArticle(title, url, excerpt, added, updated) {
+function createArticle (title, url, excerpt, added, updated) {
   return {
     resolved_title: title, // eslint-disable-line camelcase
     resolved_url: url, // eslint-disable-line camelcase
     excerpt: excerpt,
     time_added: added, // eslint-disable-line camelcase
     time_updated: updated // eslint-disable-line camelcase
-  };
+  }
 }
 
-function createArticles() {
+function createArticles () {
   return [
     createArticle('test title 1',
       'http://example.com',
@@ -88,11 +88,11 @@ function createArticles() {
       'test',
       DATES['2016-03-05'],
       DATES['2016-04-10'])
-  ];
+  ]
 }
 
 module.exports = {
   createArticle: createArticle,
   createArticles: createArticles,
   DATES: DATES
-};
+}

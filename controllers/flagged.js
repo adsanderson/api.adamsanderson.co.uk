@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-const getFlag = require("../app/flagged");
+const getFlag = require('../app/flagged')
 
 module.exports.get = function * () {
-  this.body = getFlag(this.request.query.flag);
-};
+  this.body = getFlag(this.request.query.flag)
+}

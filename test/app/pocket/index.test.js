@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const test = require('ava').test;
+const test = require('ava').test
 
-const pocket = require('../../../app/pocket');
+const pocket = require('../../../app/pocket')
 
 test('module loads', t => {
-  t.plan(1);
-  t.truthy(pocket);
-});
+  t.plan(1)
+  t.truthy(pocket)
+})

@@ -6,26 +6,32 @@
   "scripts": {
     "test": "ava \"test/**/*.test.js\"",
     "coverage": "npm test",
-    "lint": "eslint app/**/* *.js controllers/**/* test/**/*",
+    "lint": "lint-staged",
+    "lint:standard": "standard \"app/**/*.js\" \"test/**/*.js\" \"controllers/**/*.js\"",
     "start": "node api_server.js",
-    "precommit": "npm run lint",
     "prepush": "npm run coverage",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
-    "depcheck": "depcheck --ignores=\"eslint-config-google, eslint-config-node-style-guide, husky\""
+    "depcheck": "depcheck --ignores=\"eslint-config-google, eslint-config-node-style-guide, husky\"",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
   },
   "author": "Adam Sanderson",
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.18.2",
     "depcheck": "^0.6.4",
-    "eslint": "^3.2.1",
-    "eslint-config-google": "^0.7.1",
-    "eslint-config-node-style-guide": "^3.0.0",
     "flow-bin": "^0.40.0",
     "husky": "^0.13.1",
     "jsonschema": "^1.1.0",
+    "lint-staged": "^3.3.1",
     "proxyquire": "^1.7.4",
     "sinon": "^1.17.5",
+    "standard": "^9.0.0",
     "swagger-tools": "^0.10.1",
     "swagger-validate": "^0.1.7"
   },

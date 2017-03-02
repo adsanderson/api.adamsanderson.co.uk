@@ -1,29 +1,29 @@
-'use strict';
+'use strict'
 
-const test = require('ava').test;
-const proxyquire = require('proxyquire');
+const test = require('ava').test
+const proxyquire = require('proxyquire')
 
-const pocketDummy = {};
+const pocketDummy = {}
 pocketDummy['../pocket'] = () => {
-  return;
-};
-const articleBuilderDummy = {};
+
+}
+const articleBuilderDummy = {}
 articleBuilderDummy['./articleBuilder'] = () => {
-  return;
-};
+
+}
 const interesting = proxyquire('../../../app/interesting',
   pocketDummy,
-  articleBuilderDummy);
+  articleBuilderDummy)
 
 test('interesting,', t => {
-  t.plan(2);
-  let gen = interesting.read();
+  t.plan(2)
+  let gen = interesting.read()
 
-  gen.next();
+  gen.next()
   gen.next({
     list: []
-  });
+  })
 
-  t.truthy(interesting);
-  t.truthy(interesting.read);
-});
+  t.truthy(interesting)
+  t.truthy(interesting.read)
+})

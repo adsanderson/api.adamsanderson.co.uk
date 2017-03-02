@@ -38,14 +38,11 @@
   "dependencies": {
     "bwip-js": "^1.0.4",
     "fleek-router": "^2.0.2",
-    "hangouts-bot": "^0.2.1",
     "image-data-uri": "^1.0.0",
     "koa": "^2.0.1",
     "node-fetch": "^1.6.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-redux": "^5.0.3",
-    "redux": "^3.5.2",
     "remark": "^7.0.0"
   }
 }

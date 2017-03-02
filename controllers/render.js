@@ -1,11 +1,11 @@
-'use strict';
+'use strict'
 
-const render = require("../app/render");
+const render = require('../app/render')
 
 module.exports.get = function * () {
-  const domString = render();
+  const domString = render()
   this.body = {
     message: 'rendered DOM',
     DOMString: domString
-  };
-};
+  }
+}

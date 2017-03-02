@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
-const test = require('ava').test;
+const test = require('ava').test
 // const proxyquire = require('proxyquire');
-const validate = require('jsonschema').validate;
+const validate = require('jsonschema').validate
 
 // const appBarcodeDummy = {};
 // appBarcodeDummy['../app/barcode'] = {
@@ -10,23 +10,23 @@ const validate = require('jsonschema').validate;
 // };
 // const barcodeProxy = proxyquire('../../controllers/barcode',
   // appBarcodeDummy);
-const render = require('../../controllers/render');
-const renderSchema = require('../../schema/render');
+const render = require('../../controllers/render')
+const renderSchema = require('../../schema/render')
 
 test('Controller: render', t => {
-  t.plan(1);
+  t.plan(1)
   const requestDummy = {
     request: {
       query: {}
     }
-  };
+  }
 
-  let gen = render.get.call(requestDummy);
+  let gen = render.get.call(requestDummy)
 
-  gen.next();
+  gen.next()
 
-  const validationResult = validate(requestDummy.body, renderSchema);
-  const validationErrors = validationResult.errors.length;
+  const validationResult = validate(requestDummy.body, renderSchema)
+  const validationErrors = validationResult.errors.length
 
-  t.is(validationErrors, 0, 'expect a valid schema to be returned');
-});
+  t.is(validationErrors, 0, 'expect a valid schema to be returned')
+})

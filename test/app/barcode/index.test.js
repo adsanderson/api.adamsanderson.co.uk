@@ -20,16 +20,12 @@ test('barcode:', t => {
   t.is(typeof barcode.read, 'function', 'has read function')
 })
 
-test('barcode: read', t => {
+test('barcode: read', async function (t) {
   t.plan(2)
-  let gen = barcode.read()
 
-  gen.next()
-  const result = gen.next(['test-test', 'foo-bar'])
+  const result = await barcode.read(['test-test', 'foo-bar'])
 
-  return result.value.then(barcodesList => {
-    const singleFinalBarcodeKeys = Object.keys(barcodesList[0])
-    t.not(singleFinalBarcodeKeys.indexOf('text'), -1, 'expect `text` property to exist')
-    t.not(singleFinalBarcodeKeys.indexOf('barcode'), -1, 'expect `barcode` property to exist')
-  })
+  const singleFinalBarcodeKeys = Object.keys(result[0])
+  t.not(singleFinalBarcodeKeys.indexOf('text'), -1, 'expect `text` property to exist')
+  t.not(singleFinalBarcodeKeys.indexOf('barcode'), -1, 'expect `barcode` property to exist')
 })

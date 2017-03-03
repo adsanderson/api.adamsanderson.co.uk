@@ -11,7 +11,7 @@ const validate = require('jsonschema').validate
 const flaggedController = require('../../controllers/flagged')
 const flaggedSchema = require('../../schema/flagged')
 
-test('Controller: interesting', t => {
+test('Controller: interesting', async function (t) {
   t.plan(1)
   const requestDummy = {
     request: {
@@ -19,9 +19,7 @@ test('Controller: interesting', t => {
     }
   }
 
-  let gen = flaggedController.get.call(requestDummy)
-
-  gen.next()
+  await flaggedController.get.call(requestDummy)
 
   const validationResult = validate(flaggedController.body, flaggedSchema)
   const validationErrors = validationResult.errors.length

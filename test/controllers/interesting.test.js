@@ -6,18 +6,17 @@ const validate = require('jsonschema').validate
 
 const appInterestingDummy = {}
 appInterestingDummy['../app/interesting'] = {
-  read: function () {}
+  read: function () {
+    return ['test string']
+  }
 }
 const interestingProxy = proxyquire('../../controllers/interesting',
   appInterestingDummy)
 const interestingSchema = require('../../schema/interesting')
 
-test('Controller: interesting', t => {
+test('Controller: interesting', async function (t) {
   t.plan(1)
-  let gen = interestingProxy.get()
-
-  gen.next()
-  gen.next(['test string'])
+  await interestingProxy.get()
 
   const validationResult = validate(interestingProxy.body, interestingSchema)
   const validationErrors = validationResult.errors.length

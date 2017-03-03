@@ -4,15 +4,22 @@ const test = require('ava').test
 const proxyquire = require('proxyquire')
 const validate = require('jsonschema').validate
 
+const bodyResult = [{
+  text: '',
+  barcode: ''
+}]
+
 const appBarcodeDummy = {}
 appBarcodeDummy['../app/barcode'] = {
-  read: function () {}
+  read: function () {
+    return bodyResult
+  }
 }
 const barcodeProxy = proxyquire('../../controllers/barcode',
   appBarcodeDummy)
 const barcodeSchema = require('../../schema/barcode')
 
-test('Controller: barcode', t => {
+test('Controller: barcode', async function (t) {
   t.plan(2)
   const requestDummy = {
     request: {
@@ -20,15 +27,7 @@ test('Controller: barcode', t => {
     }
   }
 
-  const bodyResult = [{
-    text: '',
-    barcode: ''
-  }]
-
-  let gen = barcodeProxy.get.call(requestDummy)
-
-  gen.next()
-  gen.next(bodyResult)
+  await barcodeProxy.get.call(requestDummy)
 
   const validationResult = validate(requestDummy.body, barcodeSchema)
   const validationErrors = validationResult.errors.length

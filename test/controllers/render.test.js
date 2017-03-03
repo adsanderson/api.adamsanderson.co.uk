@@ -1,19 +1,12 @@
 'use strict'
 
 const test = require('ava').test
-// const proxyquire = require('proxyquire');
 const validate = require('jsonschema').validate
 
-// const appBarcodeDummy = {};
-// appBarcodeDummy['../app/barcode'] = {
-//   read: function() {}
-// };
-// const barcodeProxy = proxyquire('../../controllers/barcode',
-  // appBarcodeDummy);
 const render = require('../../controllers/render')
 const renderSchema = require('../../schema/render')
 
-test('Controller: render', t => {
+test('Controller: render', async function (t) {
   t.plan(1)
   const requestDummy = {
     request: {
@@ -21,9 +14,7 @@ test('Controller: render', t => {
     }
   }
 
-  let gen = render.get.call(requestDummy)
-
-  gen.next()
+  await render.get.call(requestDummy)
 
   const validationResult = validate(requestDummy.body, renderSchema)
   const validationErrors = validationResult.errors.length

@@ -4,8 +4,10 @@ const test = require('ava').test
 const proxyquire = require('proxyquire')
 
 const pocketDummy = {}
-pocketDummy['../pocket'] = () => {
-
+pocketDummy['../pocket'] = function () {
+  return {
+    list: []
+  }
 }
 const articleBuilderDummy = {}
 articleBuilderDummy['./articleBuilder'] = () => {
@@ -15,14 +17,10 @@ const interesting = proxyquire('../../../app/interesting',
   pocketDummy,
   articleBuilderDummy)
 
-test('interesting,', t => {
+test('interesting,', async function (t) {
   t.plan(2)
-  let gen = interesting.read()
 
-  gen.next()
-  gen.next({
-    list: []
-  })
+  await interesting.read()
 
   t.truthy(interesting)
   t.truthy(interesting.read)

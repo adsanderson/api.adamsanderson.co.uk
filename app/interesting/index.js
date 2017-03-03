@@ -3,8 +3,8 @@
 var pocket = require('../pocket')
 var articleBuilder = require('./articleBuilder')
 
-function * read () {
-  const posts = yield pocket()
+async function read () {
+  const posts = await pocket()
   const response = {
     latest: articleBuilder(posts.list).latest
   }

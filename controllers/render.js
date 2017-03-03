@@ -2,7 +2,7 @@
 
 const render = require('../app/render')
 
-module.exports.get = function * () {
+module.exports.get = async function () {
   const domString = render()
   this.body = {
     message: 'rendered DOM',

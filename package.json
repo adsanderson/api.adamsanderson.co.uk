@@ -20,6 +20,9 @@
       "git add"
     ]
   },
+  "engines": {
+    "node": ">=7.6.0 <8.0.0"
+  },
   "author": "Adam Sanderson",
   "license": "MIT",
   "devDependencies": {
@@ -37,6 +40,7 @@
   },
   "dependencies": {
     "bwip-js": "^1.0.4",
+    "fleek-context": "^1.0.4",
     "fleek-router": "^2.0.2",
     "image-data-uri": "^1.0.0",
     "koa": "^2.0.1",

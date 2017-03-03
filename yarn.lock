@@ -1631,6 +1631,16 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
+flatten@~0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/flatten/-/flatten-0.0.1.tgz#554440766da0a0d603999f433453f6c2fc6a75c1"
+
+fleek-context@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/fleek-context/-/fleek-context-1.0.4.tgz#6eb13b07158639b8363322e0573f90a134ebeebc"
+  dependencies:
+    routington "^1.0.3"
+
 fleek-router@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/fleek-router/-/fleek-router-2.0.2.tgz#e849c2aa49d1fc75faa20c67b600f5f5c8311da6"
@@ -1933,7 +1943,7 @@ hosted-git-info@^2.1.4:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.2.0.tgz#7a0d097863d886c0fabbdcd37bf1758d8becf8a5"
 
-http-assert@^1.1.0:
+http-assert@1, http-assert@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/http-assert/-/http-assert-1.2.0.tgz#d6392e6f6519def4e340266b35096db6d3feba00"
   dependencies:
@@ -2381,8 +2391,8 @@ js-tokens@^3.0.0:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
 js-yaml@^3.3.1, js-yaml@^3.4.2, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.5.2:
-  version "3.8.1"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.1.tgz#782ba50200be7b9e5a8537001b7804db3ad02628"
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
   dependencies:
     argparse "^1.0.7"
     esprima "^3.1.1"
@@ -3885,6 +3895,13 @@ rimraf@~2.5.1, rimraf@~2.5.4:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
     glob "^7.0.5"
+
+routington@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/routington/-/routington-1.0.3.tgz#bd54cbf99bfa6bc9309312e38d5ea140ee0f421c"
+  dependencies:
+    flatten "~0.0.1"
+    http-assert "1"
 
 run-async@^0.1.0:
   version "0.1.0"

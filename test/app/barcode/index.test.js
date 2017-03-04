@@ -20,7 +20,7 @@ test('barcode:', t => {
   t.is(typeof barcode.read, 'function', 'has read function')
 })
 
-test('barcode: read', async function (t) {
+test('barcode: read', async (t) => {
   t.plan(2)
 
   const result = await barcode.read(['test-test', 'foo-bar'])

@@ -17,7 +17,7 @@ function generateBarcode (requestText) {
   })
 }
 
-const read = async function (requestQuery) {
+const read = async (requestQuery) => {
   const requestTexts = await barcodeTextGenerator(requestQuery)
   return Promise.all(requestTexts.map(generateBarcode))
 }

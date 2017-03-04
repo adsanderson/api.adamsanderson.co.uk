@@ -9,10 +9,10 @@
     "lint": "lint-staged",
     "lint:standard": "standard \"app/**/*.js\" \"test/**/*.js\" \"controllers/**/*.js\"",
     "start": "node api_server.js",
-    "prepush": "npm run test",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "depcheck": "depcheck --ignores=\"eslint-config-google, eslint-config-node-style-guide, husky\"",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "npm run test"
   },
   "lint-staged": {
     "*.js": [

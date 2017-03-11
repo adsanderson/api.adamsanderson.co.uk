@@ -11,8 +11,7 @@
     "start": "node api_server.js",
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "depcheck": "depcheck --ignores=\"eslint-config-google, eslint-config-node-style-guide, husky\"",
-    "precommit": "lint-staged",
-    "prepush": "npm run test"
+    "precommit": "lint-staged"
   },
   "lint-staged": {
     "*.js": [

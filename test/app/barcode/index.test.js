@@ -21,7 +21,7 @@ test('barcode:', t => {
 })
 
 test('barcode: read', (t) => {
-  t.plan(2)
+  // t.plan(2)
 
   const test = async () => {
     const result = await barcode.read(['test-test', 'foo-bar'])

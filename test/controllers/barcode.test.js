@@ -20,7 +20,7 @@ const barcodeProxy = proxyquire('../../controllers/barcode',
 const barcodeSchema = require('../../schema/barcode')
 
 test('Controller: barcode', async function (t) {
-  t.plan(2)
+  // t.plan(2)
   const requestDummy = {
     request: {
       query: {}

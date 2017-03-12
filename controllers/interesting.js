@@ -3,9 +3,10 @@
 const interesting = require('../app/interesting')
 
 module.exports = {
-  get: async function () {
+  get: async function (ctx) {
     let posts = await interesting.read(this)
-    this.body = {
+    console.log('posts', posts)
+    ctx.body = {
       message: 'interesting retrieved!',
       posts: posts
     }

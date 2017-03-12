@@ -2,9 +2,9 @@
 
 const render = require('../app/render')
 
-module.exports.get = () => {
+module.exports.get = (ctx) => {
   const domString = render()
-  this.body = {
+  ctx.body = {
     message: 'rendered DOM',
     DOMString: domString
   }

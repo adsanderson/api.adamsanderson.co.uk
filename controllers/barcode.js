@@ -2,9 +2,9 @@
 
 const barcode = require('../app/barcode')
 
-module.exports.get = async function () {
-  let barcodes = await barcode.read(this.request.query)
-  this.body = {
+module.exports.get = async function (ctx) {
+  let barcodes = await barcode.read(ctx.request.query)
+  ctx.body = {
     message: 'generated barcodes!',
     barcodes: barcodes
   }

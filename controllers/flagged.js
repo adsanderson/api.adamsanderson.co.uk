@@ -2,6 +2,6 @@
 
 const getFlag = require('../app/flagged')
 
-module.exports.get = async function () {
-  this.body = getFlag(this.request.query.flag)
+module.exports.get = async function (ctx) {
+  ctx.body = getFlag(ctx.request.query.flag)
 }

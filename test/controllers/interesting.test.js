@@ -16,7 +16,7 @@ const interestingSchema = require('../../schema/interesting')
 
 test('Controller: interesting', async function (t) {
   t.plan(1)
-  await interestingProxy.get()
+  await interestingProxy.get({request: {}})
 
   const validationResult = validate(interestingProxy.body, interestingSchema)
   const validationErrors = validationResult.errors.length

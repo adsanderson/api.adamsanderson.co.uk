@@ -19,7 +19,7 @@ test('Controller: interesting', async function (t) {
     }
   }
 
-  await flaggedController.get.call(requestDummy)
+  await flaggedController.get(requestDummy)
 
   const validationResult = validate(flaggedController.body, flaggedSchema)
   const validationErrors = validationResult.errors.length

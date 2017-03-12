@@ -14,7 +14,7 @@ test('Controller: render', async function (t) {
     }
   }
 
-  await render.get.call(requestDummy)
+  await render.get(requestDummy)
 
   const validationResult = validate(requestDummy.body, renderSchema)
   const validationErrors = validationResult.errors.length

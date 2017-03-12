@@ -27,7 +27,7 @@ test('Controller: barcode', async function (t) {
     }
   }
 
-  await barcodeProxy.get.call(requestDummy)
+  await barcodeProxy.get(requestDummy)
 
   const validationResult = validate(requestDummy.body, barcodeSchema)
   const validationErrors = validationResult.errors.length

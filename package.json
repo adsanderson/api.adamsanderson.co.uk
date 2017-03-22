@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "bwip-js": "^1.0.4",
-    "fleek-context": "^1.0.4",
+    "fleek-context": "^1.0.5",
     "fleek-router": "^2.0.2",
     "image-data-uri": "^1.0.0",
     "koa": "^2.0.1",

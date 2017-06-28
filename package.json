@@ -25,7 +25,7 @@
   "author": "Adam Sanderson",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.18.2",
+    "ava": "^0.20.0",
     "depcheck": "^0.6.4",
     "flow-bin": "^0.40.0",
     "husky": "^0.13.1",

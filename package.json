@@ -40,7 +40,7 @@
   "dependencies": {
     "bwip-js": "^1.0.4",
     "fleek-context": "^1.0.4",
-    "fleek-router": "^2.0.2",
+    "fleek-router": "^2.1.0",
     "image-data-uri": "^1.0.0",
     "koa": "^2.0.1",
     "node-fetch": "^1.6.0",
